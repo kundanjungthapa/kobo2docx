@@ -20,88 +20,23 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ---------------------------------------------------------
-# CUSTOM CSS STYLING (Modern Dashboard UI)
-# ---------------------------------------------------------
-st.markdown("""
-<style>
-    /* Global font & background tuning */
-    .main {
-        background-color: #f8fafc;
-    }
-    
-    /* Hero Header Styling */
-    .hero-box {
-        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-        padding: 2.5rem;
-        border-radius: 12px;
-        color: white;
-        margin-bottom: 2rem;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-    .hero-title {
-        font-size: 2.4rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-    }
-    .hero-subtitle {
-        font-size: 1.1rem;
-        opacity: 0.9;
-    }
+# Load External CSS Stylesheet
+def load_css(file_path="assets/style.css"):
+    if os.path.exists(file_path):
+        with open(file_path, "r") as f:
+            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-    /* Process Card Styling */
-    .step-card {
-        background: white;
-        padding: 1.25rem;
-        border-radius: 10px;
-        border-left: 4px solid #3b82f6;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        margin-bottom: 1rem;
-    }
-    .step-num {
-        font-weight: 700;
-        color: #3b82f6;
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-    .step-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #1e293b;
-        margin-top: 0.2rem;
-    }
-
-    /* Feature Badge Cards */
-    .feature-badge {
-        background: #f1f5f9;
-        border: 1px solid #e2e8f0;
-        border-radius: 8px;
-        padding: 0.75rem 1rem;
-        font-size: 0.9rem;
-        color: #334155;
-        font-weight: 500;
-    }
-
-    /* Hide default Streamlit footer padding */
-    footer {visibility: hidden;}
-</style>
-""", unsafe_allow_html=True)
+load_css()
 
 # ---------------------------------------------------------
-# SIDEBAR: DOCUMENTATION & CONFIGURATION
-# ---------------------------------------------------------
-# ---------------------------------------------------------
-# SIDEBAR: DOCUMENTATION & CONFIGURATION
+# SIDEBAR
 # ---------------------------------------------------------
 with st.sidebar:
     st.image("https://img.icons8.com/color/96/000000/ms-word.png", width=64)
     st.title("Kobo2Docx Engine")
     st.caption("Version 1.2.0 • Production")
     
-    # Cross-referencing link to GitHub Pages
-    st.markdown("🌐 **Project Site**: [kundanjungthapa.github.io/kobo2docx](https://kundanjungthapa.github.io/kobo2docx/)")
-    
+    st.markdown("🌐 **Project Landing Site**: [kundanjungthapa.github.io/kobo2docx](https://kundanjungthapa.github.io/kobo2docx/)")
     st.divider()
     
     st.markdown("### ⚙️ Formatting Rules")
@@ -112,26 +47,17 @@ with st.sidebar:
     - **Skip-Logic Items**: Indented 0.25", 10pt Fainter Gray
     - **Text Fields**: Clean dotted lines (`........`)
     """)
-    
     st.divider()
     
     st.markdown("### 🛠️ Help & Specs")
     with st.expander("Required Sheet Headers"):
         st.markdown("""
-        **Survey Sheet:**
-        - `type`, `name`
-        - `label::<lang>` (e.g., `label::English (en)`)
-        - `hint::<lang>`
-        - `relevant` (Skip logic)
-        
-        **Choices Sheet:**
-        - `list_name`, `name`, `label::<lang>`
+        **Survey Sheet:** `type`, `name`, `label::<lang>`, `hint::<lang>`, `relevant`  
+        **Choices Sheet:** `list_name`, `name`, `label::<lang>`
         """)
-        
-    st.info("Developed for KoboToolbox & ODK XLSForm structures.")
 
 # ---------------------------------------------------------
-# MAIN LANDING & HERO SECTION
+# HERO SECTION
 # ---------------------------------------------------------
 st.markdown("""
 <div class="hero-box">
@@ -141,7 +67,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
-# INTERACTIVE WORKFLOW STEPS
+# WORKFLOW CARDS
 # ---------------------------------------------------------
 st.markdown("### 🚀 How It Works")
 col1, col2, col3, col4 = st.columns(4)
@@ -185,7 +111,7 @@ with col4:
 st.divider()
 
 # ---------------------------------------------------------
-# CONVERSION CONSOLE (MAIN INTERACTION ZONE)
+# CONVERSION CONSOLE
 # ---------------------------------------------------------
 st.markdown("### 📂 Conversion Console")
 
@@ -196,7 +122,6 @@ uploaded_file = st.file_uploader(
 )
 
 if uploaded_file is not None:
-    # Processing Status Panel
     with st.status("Reading XLSForm structure...", expanded=True) as status:
         st.write("📂 Saving uploaded workbook to temporary workspace...")
         
@@ -224,7 +149,7 @@ if uploaded_file is not None:
                 m3.metric("Choices Registered", len(reader.choices_df))
                 m4.metric("Languages Found", len(detected_languages))
 
-                # Tabbed Preview Area
+                # Actions & Data Preview
                 tab1, tab2 = st.columns([2, 1])
                 
                 with tab1:
@@ -248,7 +173,6 @@ if uploaded_file is not None:
                             st.balloons()
                             st.success("All documents formatted successfully!")
 
-                            # Download Section
                             st.markdown("#### 📥 Ready Downloads")
                             if len(generated_files) == 1:
                                 filename, filepath = generated_files[0]
@@ -288,5 +212,4 @@ if uploaded_file is not None:
                 st.error(f"Failed to process file: {str(e)}")
 
 else:
-    # Empty State Information Box
     st.info("💡 Upload a `.xlsx` file above to start formatting.")
