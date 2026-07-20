@@ -3,61 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Convert KoboToolbox and ODK XLSForm questionnaires into cleanly formatted, publication-ready Word documents (.docx) supporting dual and multiple languages.">
-    <meta name="keywords" content="KoboToolbox, XLSForm, ODK, DOCX Converter, Questionnaire Generator, Survey Tool">
-    <title>Kobo2Docx - Convert KoboToolbox Forms to Word Documents</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Kobo2Docx | Free KoboToolbox & ODK to Word Converter</title>
+    <meta name="description" content="Convert KoboToolbox and ODK XLSForm questionnaires into cleanly formatted Word (.docx) documents automatically with multi-language support.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --accent-blue: #3b82f6;
+            --bg-light: #f8fafc;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: #334155;
+        }
+        .navbar {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 80px 0;
+            border-radius: 0 0 24px 24px;
+        }
+        .btn-launch {
+            background-color: #ffffff;
+            color: var(--primary-blue);
+            font-weight: 700;
+            padding: 14px 28px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .btn-launch:hover {
+            background-color: #f1f5f9;
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2);
+        }
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: transform 0.2s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background-color: #eff6ff;
+            color: var(--accent-blue);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: white;
+            border-top: 1px solid #e2e8f0;
+            padding: 30px 0;
+            margin-top: 80px;
+        }
+    </style>
 </head>
 <body>
-    <header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <h1>📝 Kobo2Docx</h1>
-            <p>Automatically convert KoboToolbox & ODK XLSForm questionnaires into clean, publication-ready Word (.docx) documents.</p>
-            <div class="cta-buttons">
-                <a href="https://github.com/kundanjungthapa/kobo2docx/archive/refs/heads/main.zip" class="btn primary">Download Zip</a>
-                <a href="https://github.com/kundanjungthapa/kobo2docx" class="btn secondary" target="_blank">View on GitHub</a>
+            <a class="navbar-brand fw-bold text-primary" href="#">
+                <i class="fa-solid me-2">📋</i>Kobo2Docx
+            </a>
+            <div class="ms-auto">
+                <a href="https://kobo2docx.streamlit.app" target="_blank" class="btn btn-primary btn-sm rounded-pill px-3">
+                    Launch Web App <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Convert KoboToolbox Forms to Word</h1>
+            <p class="lead mb-4 opacity-90 mx-auto" style="max-width: 700px;">
+                Transform raw XLSForm spreadsheets into structured, publication-ready Word (.docx) questionnaires automatically.
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="https://kobo2docx.streamlit.app" target="_blank" class="btn btn-launch text-decoration-none">
+                    <i class="fa-solid fa-rocket me-2"></i>Use Free Converter Tool
+                </a>
+                <a href="https://github.com/kundanjungthapa/kobo_xlsx_to_docx" target="_blank" class="btn btn-outline-light px-4 py-3 rounded-3 text-decoration-none">
+                    <i class="fa-brands fa-github me-2"></i>GitHub Source
+                </a>
             </div>
         </div>
     </header>
 
-    <main class="container">
-        <section class="features">
-            <h2>Key Features</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>🌐 Multi-Language Support</h3>
-                    <p>Auto-detects <code>label::Language</code> headers and builds individual Word documents for each language seamlessly.</p>
-                </div>
-                <div class="card">
-                    <h3>🎨 Clean Layouts</h3>
-                    <p>Creates full-width shaded section header rows for groups and formatted tables with S.N., Questions, and Response Options.</p>
-                </div>
-                <div class="card">
-                    <h3>🔀 Smart Logic Formatting</h3>
-                    <p>Questions dependent on skip logic (<code>relevant</code>) are automatically indented and styled in fainter 10pt text.</p>
-                </div>
-                <div class="card">
-                    <h3>⚡ One-Click Local Runner</h3>
-                    <p>Includes a <code>run.bat</code> file for Windows users—double-click to convert questionnaires locally without touching terminal code.</p>
+    <!-- Core Features -->
+    <section class="container my-5 py-4">
+        <h2 class="text-center fw-bold mb-5">Key Conversion Capabilities</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fa-solid fa-language"></i></div>
+                    <h5 class="fw-bold">Multi-Language Detection</h5>
+                    <p class="text-muted mb-0">Automatically parses headers like <code>label::English</code> and <code>label::Nepali</code> to produce localized Word documents per language.</p>
                 </div>
             </div>
-        </section>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fa-solid fa-code-branch"></i></div>
+                    <h5 class="fw-bold">Smart Skip Logic Styling</h5>
+                    <p class="text-muted mb-0">Identifies conditional skip rules and visually highlights dependent questions using indented 10pt muted formatting.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fa-solid fa-file-word"></i></div>
+                    <h5 class="fw-bold">Structured Table Layouts</h5>
+                    <p class="text-muted mb-0">Generates clean section banners for groups, bulleted option choices, and dotted response lines for text questions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section class="usage">
-            <h2>How to Use Locally</h2>
-            <ol>
-                <li>Download or clone the repository to your computer.</li>
-                <li>Place your Kobo Excel forms (<code>.xlsx</code>) inside the <code>inputs/</code> folder.</li>
-                <li>Double-click <code>run.bat</code> (or run <code>python main.py</code> in terminal).</li>
-                <li>Collect your formatted Word documents in the <code>outputs/</code> folder.</li>
-            </ol>
-        </section>
-    </main>
-
-    <footer>
+    <!-- Footer -->
+    <footer class="text-center text-muted">
         <div class="container">
-            <p>Created by <a href="https://github.com/kundanjungthapa" target="_blank">Kundan Jung Thapa</a> &bull; Open-Source under the MIT License</p>
+            <p class="mb-1">Developed by Kundan Jung Thapa • Open Source Project</p>
+            <small>
+                Hosted on GitHub Pages • Converter powered by 
+                <a href="https://kobo2docx.streamlit.app" class="text-primary text-decoration-none" target="_blank">Streamlit Community Cloud</a>
+            </small>
         </div>
     </footer>
+
 </body>
 </html>

@@ -91,10 +91,16 @@ st.markdown("""
 # ---------------------------------------------------------
 # SIDEBAR: DOCUMENTATION & CONFIGURATION
 # ---------------------------------------------------------
+# ---------------------------------------------------------
+# SIDEBAR: DOCUMENTATION & CONFIGURATION
+# ---------------------------------------------------------
 with st.sidebar:
     st.image("https://img.icons8.com/color/96/000000/ms-word.png", width=64)
     st.title("Kobo2Docx Engine")
     st.caption("Version 1.2.0 • Production")
+    
+    # Cross-referencing link to GitHub Pages
+    st.markdown("🌐 **Project Site**: [kundanjungthapa.github.io/kobo2docx](https://kundanjungthapa.github.io/kobo2docx/)")
     
     st.divider()
     
