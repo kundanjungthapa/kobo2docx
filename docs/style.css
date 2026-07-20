@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+header {
+    background: linear-gradient(135deg, #2e5b82 0%, #1a364a 100%);
+    color: #ffffff;
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin: 0 auto 2rem auto;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn.primary {
+    background-color: #00d1b2;
+    color: #ffffff;
+}
+
+.btn.primary:hover {
+    background-color: #00b89c;
+}
+
+.btn.secondary {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn.secondary:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.card {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+}
+
+.card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.usage {
+    margin-top: 3rem;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.usage h2 {
+    margin-bottom: 1rem;
+}
+
+.usage ol {
+    margin-left: 1.5rem;
+}
+
+.usage li {
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 3rem;
+    border-top: 1px solid #e9ecef;
+}
+
+footer a {
+    color: #2e5b82;
+    text-decoration: none;
+}

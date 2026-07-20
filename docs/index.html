@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert KoboToolbox and ODK XLSForm questionnaires into cleanly formatted, publication-ready Word documents (.docx) supporting dual and multiple languages.">
+    <meta name="keywords" content="KoboToolbox, XLSForm, ODK, DOCX Converter, Questionnaire Generator, Survey Tool">
+    <title>Kobo2Docx - Convert KoboToolbox Forms to Word Documents</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📝 Kobo2Docx</h1>
+            <p>Automatically convert KoboToolbox & ODK XLSForm questionnaires into clean, publication-ready Word (.docx) documents.</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/kundanjungthapa/kobo2docx/archive/refs/heads/main.zip" class="btn primary">Download Zip</a>
+                <a href="https://github.com/kundanjungthapa/kobo2docx" class="btn secondary" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="features">
+            <h2>Key Features</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>🌐 Multi-Language Support</h3>
+                    <p>Auto-detects <code>label::Language</code> headers and builds individual Word documents for each language seamlessly.</p>
+                </div>
+                <div class="card">
+                    <h3>🎨 Clean Layouts</h3>
+                    <p>Creates full-width shaded section header rows for groups and formatted tables with S.N., Questions, and Response Options.</p>
+                </div>
+                <div class="card">
+                    <h3>🔀 Smart Logic Formatting</h3>
+                    <p>Questions dependent on skip logic (<code>relevant</code>) are automatically indented and styled in fainter 10pt text.</p>
+                </div>
+                <div class="card">
+                    <h3>⚡ One-Click Local Runner</h3>
+                    <p>Includes a <code>run.bat</code> file for Windows users—double-click to convert questionnaires locally without touching terminal code.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="usage">
+            <h2>How to Use Locally</h2>
+            <ol>
+                <li>Download or clone the repository to your computer.</li>
+                <li>Place your Kobo Excel forms (<code>.xlsx</code>) inside the <code>inputs/</code> folder.</li>
+                <li>Double-click <code>run.bat</code> (or run <code>python main.py</code> in terminal).</li>
+                <li>Collect your formatted Word documents in the <code>outputs/</code> folder.</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Created by <a href="https://github.com/kundanjungthapa" target="_blank">Kundan Jung Thapa</a> &bull; Open-Source under the MIT License</p>
+        </div>
+    </footer>
+</body>
+</html>
