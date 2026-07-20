@@ -1,0 +1,23 @@
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Python Caches & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Excel Temporary / Lock Files
+~$*.xlsx
+
+# Input / Output Data (Keeps folder structure on Git while excluding user files)
+inputs/*
+!inputs/.gitkeep
+outputs/*
+!outputs/.gitkeep
+
+# IDE Settings
+.vscode/
+.idea/
